@@ -6,7 +6,11 @@ use pocketmine\entity\Arrow;
 use pocketmine\event\entity\ProjectileHitEvent;
 
 class allowarrow extends PluginBase implements Listener{
-	public function arrow(ProjectileHitEvent $event){
-	$event->getEntity()->getLevel()->removeEntity($entity);
+
+	public function onEnable(){ 
+		$this->getServer ()->getPluginManager ()->registerEvents ( $this, $this );}
+	public function arrow(ProjectileHitEvent  $event){
+	$entity =$event->getEntity();
+$entity->getLevel()->removeEntity($entity);
 	}
 }
